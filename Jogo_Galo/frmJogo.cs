@@ -26,7 +26,7 @@ namespace Jogo_Galo
 
         private void mudarVez()
         {
-            if (textVez.Text == simbolo1)
+            if (textVez.Text == simbolo1 && !fim)
                 textVez.Text = simbolo2;
             else
                 textVez.Text = simbolo1;
@@ -87,10 +87,22 @@ namespace Jogo_Galo
                 fim = true;
             }
 
-            if (vez > 9)
+            if (vez >= 9 && fim != true)
             {
-                MessageBox.Show("Fim do Jogo!");
+                MessageBox.Show("Empate!");
                 fim = true;
+            }
+
+            if (fim == true && vez < 9)
+            {
+                if (vez % 2 == 0)
+                {
+                    MessageBox.Show("O Jogador 2 GANHOU!");
+                }
+                else
+                {
+                    MessageBox.Show("O Jogador 1 GANHOU!");
+                }
             }
         }
 
@@ -194,7 +206,7 @@ namespace Jogo_Galo
 
         private void label1_Click(object sender, EventArgs e)
         {
-            if (label1.Text == "")
+            if (label1.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label1.ForeColor = Color.Red;
@@ -202,14 +214,13 @@ namespace Jogo_Galo
                     label1.ForeColor = Color.Blue;
 
                 label1.Text = textVez.Text;
-            }
-
-            mudarVez();
+                mudarVez();
+            }     
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            if (label2.Text == "")
+            if (label2.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label2.ForeColor = Color.Red;
@@ -217,14 +228,13 @@ namespace Jogo_Galo
                     label2.ForeColor = Color.Blue;
 
                 label2.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
-            if (label3.Text == "")
+            if (label3.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label3.ForeColor = Color.Red;
@@ -232,14 +242,13 @@ namespace Jogo_Galo
                     label3.ForeColor = Color.Blue;
 
                 label3.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            if (label4.Text == "")
+            if (label4.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label4.ForeColor = Color.Red;
@@ -247,14 +256,13 @@ namespace Jogo_Galo
                     label4.ForeColor = Color.Blue;
 
                 label4.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-            if (label5.Text == "")
+            if (label5.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label5.ForeColor = Color.Red;
@@ -262,14 +270,13 @@ namespace Jogo_Galo
                     label5.ForeColor = Color.Blue;
 
                 label5.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            if (label6.Text == "")
+            if (label6.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label6.ForeColor = Color.Red;
@@ -277,14 +284,13 @@ namespace Jogo_Galo
                     label6.ForeColor = Color.Blue;
 
                 label6.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label7_Click(object sender, EventArgs e)
         {
-            if (label7.Text == "")
+            if (label7.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label7.ForeColor = Color.Red;
@@ -292,14 +298,13 @@ namespace Jogo_Galo
                     label7.ForeColor = Color.Blue;
 
                 label7.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
-            if (label8.Text == "")
+            if (label8.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label8.ForeColor = Color.Red;
@@ -307,14 +312,13 @@ namespace Jogo_Galo
                     label8.ForeColor = Color.Blue;
 
                 label8.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-            if (label9.Text == "")
+            if (label9.Text == "" && fim != true)
             {
                 if (textVez.Text == simbolo1)
                     label9.ForeColor = Color.Red;
@@ -322,9 +326,8 @@ namespace Jogo_Galo
                     label9.ForeColor = Color.Blue;
 
                 label9.Text = textVez.Text;
+                mudarVez();
             }
-
-            mudarVez();
         }
 
         private void pretoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -357,6 +360,11 @@ namespace Jogo_Galo
             this.BackColor = Color.CornflowerBlue;
         }
 
+        private void castanhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Brown;
+        }
+
         private void autorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("João Patrocínio\nNº: 13\nTurma: 10º P2\n2016-2017\nEscola Secundária da Moita", "Autor",  MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -366,6 +374,7 @@ namespace Jogo_Galo
         {
             vez = 0;
             fim = false;
+            textVez.Text = simbolo1;
 
             label1.Text = "";
             label2.Text = "";
@@ -388,7 +397,6 @@ namespace Jogo_Galo
             string caracter = Interaction.InputBox("Digite o simbolo:");
             simbolo1 = caracter;
             btnReset_Click(sender, e);
-            mudarVez();
         }
 
         private void jogador2ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -396,7 +404,6 @@ namespace Jogo_Galo
             string caracter = Interaction.InputBox("Digite o simbolo:");
             simbolo2 = caracter;
             btnReset_Click(sender, e);
-            mudarVez();
         }
     }
 }
